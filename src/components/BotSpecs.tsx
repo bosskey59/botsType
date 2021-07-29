@@ -1,5 +1,5 @@
 import React from "react";
-import { CardProps } from "./BotCard";
+import { BotCardProps } from "./BotCard";
 
 const BotSpecs = ({
   id,
@@ -10,7 +10,7 @@ const BotSpecs = ({
   armor,
   bot_class,
   avatar_url,
-}: CardProps) => {
+}: BotCardProps) => {
   let botType;
 
   switch (bot_class) {

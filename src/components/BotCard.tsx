@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface CardProps {
+export interface BotCardProps {
   id: string;
   name: string;
   catchphrase: string;
@@ -9,6 +9,7 @@ export interface CardProps {
   armor: string;
   bot_class: string;
   avatar_url: string;
+  handleClick: (id: string) => void;
 }
 
 const BotCard = ({
@@ -20,7 +21,8 @@ const BotCard = ({
   armor,
   bot_class,
   avatar_url,
-}: CardProps) => {
+  handleClick,
+}: BotCardProps) => {
   let botType;
 
   switch (bot_class) {
@@ -39,11 +41,7 @@ const BotCard = ({
 
   return (
     <div className="ui column">
-      <div
-        className="ui card"
-        key={id}
-        onClick={() => console.log("add code to connect event listener")}
-      >
+      <div className="ui card" key={id} onClick={() => handleClick(id)}>
         <div className="image">
           <img alt="oh no!" src={avatar_url} />
         </div>

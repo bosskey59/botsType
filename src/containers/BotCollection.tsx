@@ -1,13 +1,20 @@
 import React from "react";
-import BotCard from "../components/BotCard";
+import BotCard, { BotCardProps } from "../components/BotCard";
 
-const BotCollection = () => {
+export interface BotCollectionProps {
+  botsArray: Array<BotCardProps>;
+  handleClick: (id: string) => void;
+}
+
+const BotCollection = ({ botsArray, handleClick }: BotCollectionProps) => {
   //your code here
 
   return (
     <div className="ui four column grid">
       <div className="row">
-        {/*...and here..*/}
+        {botsArray.map((bot) => (
+          <BotCard {...bot} handleClick={handleClick} key={bot.id} />
+        ))}
         Collection of all bots
       </div>
     </div>
